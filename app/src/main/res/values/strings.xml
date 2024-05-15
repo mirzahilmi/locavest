@@ -1,6 +1,3 @@
 <resources>
-    <string name="app_name">Locavest</string>
-    <string name="navigation_foodstuff_text">Foodstuff</string>
-    <string name="navigation_cart_text">Cart</string>
-    <string name="navigation_profile_text">Profile</string>
+    <string name="app_name">My Application</string>
 </resources>
