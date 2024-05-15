@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "874764598562",
+    "project_id": "locavest69420",
+    "storage_bucket": "locavest69420.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874764598562:android:6beb430906d3355f61b97b",
+        "android_client_info": {
+          "package_name": "com.example.projekakhirpam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuE3m4dpojYV4jmiuW1rUxmlzNsCB7XNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
