@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "476410546625",
+    "project_id": "justinniceguy",
+    "storage_bucket": "justinniceguy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476410546625:android:474817f41980f942f54740",
+        "android_client_info": {
+          "package_name": "com.example.locavest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfCwlxiPwy6eRUZX5KJX0JUt0QO3lDtmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

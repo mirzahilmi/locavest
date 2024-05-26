@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
+    tools:context=".UsernameChangeActivity">
 
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:autoSizeTextType="uniform"
-        android:text="Password Reset"
+        android:text="Username change"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,7 @@
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="Username"
         android:textColor="#A3A3A3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
         android:layout_width="290dp"
         android:layout_height="55dp"
         android:ems="10"
-        android:hint="type email here..."
+        android:hint="type username here..."
         android:paddingLeft="20dp"
         android:textColor="#a3a3a3"
         app:layout_constraintBottom_toBottomOf="parent"
