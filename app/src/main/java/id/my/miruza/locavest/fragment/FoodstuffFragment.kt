@@ -1,4 +1,4 @@
-package id.my.miruza.locavest
+package id.my.miruza.locavest.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

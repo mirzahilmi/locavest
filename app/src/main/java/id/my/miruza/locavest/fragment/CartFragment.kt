@@ -1,14 +1,16 @@
-package id.my.miruza.locavest
+package id.my.miruza.locavest.fragment
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import id.my.miruza.locavest.data.CartItem
+import id.my.miruza.locavest.adapter.CartItemsAdapter
+import id.my.miruza.locavest.RetrofitInstance
+import id.my.miruza.locavest.activity.MainActivity
 import id.my.miruza.locavest.databinding.FragmentCartBinding
-import kotlinx.coroutines.runBlocking
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -107,7 +109,7 @@ class CartFragment : Fragment() {
                     )
                 )
                 // TODO: Proper exit upon API call failure
-                binding.itemsRecyclerView.adapter = CartItemAdapter(cartItems)
+                binding.itemsRecyclerView.adapter = CartItemsAdapter(cartItems)
                 (activity as MainActivity).setCartItems(cartItems)
             }
 

@@ -1,4 +1,4 @@
-package id.my.miruza.locavest
+package id.my.miruza.locavest.data
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

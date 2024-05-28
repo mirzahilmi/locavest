@@ -1,4 +1,4 @@
-package id.my.miruza.locavest
+package id.my.miruza.locavest.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -6,11 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import id.my.miruza.locavest.R
+import id.my.miruza.locavest.data.CartItem
 import id.my.miruza.locavest.databinding.LayoutCartItemBinding
 
-class CartItemAdapter(
+class CartItemsAdapter(
     private val items: List<CartItem>
-) : RecyclerView.Adapter<CartItemAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<CartItemsAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: LayoutCartItemBinding) : RecyclerView.ViewHolder(binding.root)
 

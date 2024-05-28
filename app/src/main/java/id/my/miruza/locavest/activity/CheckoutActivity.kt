@@ -1,7 +1,9 @@
-package id.my.miruza.locavest
+package id.my.miruza.locavest.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import id.my.miruza.locavest.data.CartItem
+import id.my.miruza.locavest.R
 import id.my.miruza.locavest.databinding.ActivityCheckoutBinding
 
 class CheckoutActivity : AppCompatActivity() {

@@ -1,10 +1,14 @@
-package id.my.miruza.locavest
+package id.my.miruza.locavest.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import id.my.miruza.locavest.fragment.CartFragment
+import id.my.miruza.locavest.data.CartItem
+import id.my.miruza.locavest.fragment.FoodstuffFragment
+import id.my.miruza.locavest.R
 import id.my.miruza.locavest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
