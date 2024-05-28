@@ -1,11 +1,7 @@
 package id.my.miruza.locavest
 
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import id.my.miruza.locavest.databinding.ActivityCheckoutBinding
 
 class CheckoutActivity : AppCompatActivity() {
@@ -15,7 +11,11 @@ class CheckoutActivity : AppCompatActivity() {
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val cartItems: List<CartItem> = intent.extras?.getParcelableArrayList("cartItems")!!
-        Log.w("CheckoutActivity", cartItems[0].image)
+        val cartItems: List<CartItem>  = intent.extras?.getParcelableArrayList("cartItems")!!
+        var totalPrice = 0F
+        for (item: CartItem in cartItems) {
+            totalPrice += item.pricePer * item.amount
+        }
+        binding.txtTotal.text = getString(R.string.string_total_price_format, totalPrice)
     }
 }
