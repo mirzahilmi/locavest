@@ -1,4 +1,4 @@
-package id.my.miruza.locavest
+package id.my.miruza.locavest.activity
 
 import android.content.Intent
 import android.graphics.Color
@@ -20,10 +20,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import id.my.miruza.locavest.activity.MainActivity
+import id.my.miruza.locavest.R
 
 
-class LoginPage : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     lateinit var textSignUp : TextView
     lateinit var loginEmail : TextView
     lateinit var loginPassword : TextView
@@ -84,12 +84,12 @@ class LoginPage : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d(SignupPage.TAG, "signInWithEmail:success")
+                    Log.d(SignupActivity.TAG, "signInWithEmail:success")
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w(SignupPage.TAG, "signInWithEmail:failure", task.exception)
+                    Log.w(SignupActivity.TAG, "signInWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext,
                         "Authentication failed.",
@@ -170,7 +170,7 @@ class LoginPage : AppCompatActivity() {
         }
     }
     fun onSignUpClicked(view: View?) {
-        val intent = Intent(this, SignupPage::class.java)
+        val intent = Intent(this, SignupActivity::class.java)
         startActivity(intent)
     }
 
