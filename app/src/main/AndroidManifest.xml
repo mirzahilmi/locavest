@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,31 +15,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjekAkhirPAM"
         tools:targetApi="31">
+        
         <activity
             android:name=".AfterSignUp"
             android:exported="false" />
+        
         <activity
             android:name=".WelcomePage"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
+            android:name=".activity.CheckoutActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".SignupPage"
             android:exported="false" />
+
         <activity
             android:name=".LoginPage"
             android:exported="false"
             android:label="@string/title_activity_login_page"
             android:theme="@style/Theme.ProjekAkhirPAM" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false">
-        </activity>
     </application>
 
 </manifest>

@@ -1,44 +1,27 @@
 {
   "project_info": {
-    "project_number": "874764598562",
-    "project_id": "locavest69420",
-    "storage_bucket": "locavest69420.appspot.com"
+    "project_number": "366618317775",
+    "firebase_url": "https://fir-developer-arena-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "fir-developer-arena",
+    "storage_bucket": "fir-developer-arena.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:874764598562:android:6beb430906d3355f61b97b",
+        "mobilesdk_app_id": "1:366618317775:android:bcf1229d4eabd6279ff8ba",
         "android_client_info": {
-          "package_name": "com.example.projekakhirpam"
+          "package_name": "id.my.miruza.locavest"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "874764598562-6hudgtqcguau4ejfnqjs06c5u2s5g6gs.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.projekakhirpam",
-            "certificate_hash": "9a740869807212fe655722decd3227c7fd6f9c34"
-          }
-        },
-        {
-          "client_id": "874764598562-bqgd4pkmqpi9g2emebg5t9pqp2mqbnb5.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCuE3m4dpojYV4jmiuW1rUxmlzNsCB7XNs"
+          "current_key": "AIzaSyAf1Ab_GfO7EnkItzxtHEsAQEeKPCPTy7o"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "874764598562-bqgd4pkmqpi9g2emebg5t9pqp2mqbnb5.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
