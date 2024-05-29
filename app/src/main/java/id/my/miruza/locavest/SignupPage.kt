@@ -1,4 +1,4 @@
-package com.example.projekakhirpam
+package id.my.miruza.locavest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
+import id.my.miruza.locavest.activity.MainActivity
 
 class SignupPage : AppCompatActivity() {
     lateinit var btToSignup : Button
@@ -135,7 +136,7 @@ class SignupPage : AppCompatActivity() {
     private fun handleSignInSuccess(user: FirebaseUser?) {
         user?.let {
             val welcomeMessage = "Welcome ${it.displayName}"
-            val intent = Intent(this, AfterSignUp::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("WELCOME_MESSAGE", welcomeMessage)
             startActivity(intent)
             finish()
@@ -151,13 +152,11 @@ class SignupPage : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             val welcomeMessage = "Welcome "
-            val intent = Intent(this, AfterSignUp::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("WELCOME_MESSAGE", welcomeMessage)
             sendEmailVerification()
             startActivity(intent)
             finish() // Optional: finish current activity so the user can't navigate back to it
-        } else {
-
         }
     }
     private fun reload() {

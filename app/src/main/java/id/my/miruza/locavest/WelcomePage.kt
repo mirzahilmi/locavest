@@ -1,4 +1,4 @@
-package com.example.projekakhirpam
+package id.my.miruza.locavest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

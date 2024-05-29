@@ -13,7 +13,20 @@
           "package_name": "id.my.miruza.locavest"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "366618317775-mtn7g872r6ca7q4u2k4g4sfpii1et45t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.my.miruza.locavest",
+            "certificate_hash": "8bfa078daefb58751fbda38bffb0790b2135c0a3"
+          }
+        },
+        {
+          "client_id": "366618317775-p4i8nrh8ctbjjkaalasnlpkdmg56ji5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAf1Ab_GfO7EnkItzxtHEsAQEeKPCPTy7o"
@@ -21,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366618317775-p4i8nrh8ctbjjkaalasnlpkdmg56ji5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

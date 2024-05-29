@@ -1,4 +1,4 @@
-package com.example.projekakhirpam
+package id.my.miruza.locavest
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

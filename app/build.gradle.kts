@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.projekakhirpam"
+    namespace = "id.my.miruza.locavest"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.projekakhirpam"
+        applicationId = "id.my.miruza.locavest"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.moshi)
     implementation(libs.converterMoshi)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

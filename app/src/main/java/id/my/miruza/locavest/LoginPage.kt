@@ -1,4 +1,4 @@
-package com.example.projekakhirpam
+package id.my.miruza.locavest
 
 import android.content.Intent
 import android.graphics.Color
@@ -13,16 +13,14 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.AuthUI.IdpConfig
-import com.firebase.ui.auth.AuthUI.IdpConfig.EmailBuilder
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.ActionCodeSettings
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
+import id.my.miruza.locavest.activity.MainActivity
 
 
 class LoginPage : AppCompatActivity() {
@@ -105,7 +103,7 @@ class LoginPage : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             val welcomeMessage = "Welcome " + loginEmail.text
-            val intent = Intent(this, AfterSignUp::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("WELCOME_MESSAGE", welcomeMessage)
             startActivity(intent)
             finish() // Optional: finish current activity so the user can't navigate back to it
@@ -162,7 +160,7 @@ class LoginPage : AppCompatActivity() {
     private fun handleSignInSuccess(user: FirebaseUser?) {
         user?.let {
             val welcomeMessage = "Welcome " + loginEmail.text
-            val intent = Intent(this, AfterSignUp::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("WELCOME", "AAAAAAAaaaaaaaaaaa")
             Toast.makeText(this, "LOgin berhasil", Toast.LENGTH_SHORT).show()
             startActivity(intent)
