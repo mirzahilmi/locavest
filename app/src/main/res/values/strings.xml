@@ -3,4 +3,9 @@
     <string name="navigation_foodstuff_text">Foodstuff</string>
     <string name="navigation_cart_text">Cart</string>
     <string name="navigation_profile_text">Profile</string>
+    <string name="btn_launch_checkout_text">Launch Checkout Screen</string>
+    <string name="cart_item_pricing_format">%.2f Rp / %s</string>
+    <string name="btn_checkout_text">Checkout</string>
+    <string name="text_placeholder">Lorem Ipsum</string>
+    <string name="string_total_price_format">%.2f IDR</string>
 </resources>
