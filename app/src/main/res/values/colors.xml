@@ -1,4 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#6A1B9A</color>
+    <color name="colorPrimaryVariant">#F04444</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSecondary">#FF0000</color>
+    <color name="colorSecondaryVariant">#FF0000</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="background_light">#FFFFFF</color>
+    <color name="background_dark">#000000</color>
+    <color name="colorError">#F44336</color>
     <color name="md_theme_primary">#426834</color>
     <color name="md_theme_onPrimary">#FFFFFF</color>
     <color name="md_theme_primaryContainer">#C3EFAD</color>
@@ -140,4 +150,13 @@
     <color name="md_theme_surfaceContainer_highContrast">#ECEFE5</color>
     <color name="md_theme_surfaceContainerHigh_highContrast">#E7E9DF</color>
     <color name="md_theme_surfaceContainerHighest_highContrast">#E1E4DA</color>
+    <color name="sub_background_color">#F6F5F5</color>
+    <color name="secondary_sub_background_color">#D9D0E3</color>
+    <color name="selected_background_color">#E2CBFF</color>
+    <color name="border">#D9D0E3</color>
+    <color name="text_primary_color">#2D0C57</color>
+    <color name="text_secondary_color">#9586A8</color>
+    <color name="primary_button_color">#0BCE83</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
 </resources>
