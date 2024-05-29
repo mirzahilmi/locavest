@@ -12,7 +12,7 @@ class ProfileDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.simon4)
+        setContentView(R.layout.show_profile)
 
         // Get the data passed from MainActivity
         val email = intent.getStringExtra("email")

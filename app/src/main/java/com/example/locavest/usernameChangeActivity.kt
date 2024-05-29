@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 class UsernameChangeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.simon3)
+        setContentView(R.layout.username_change)
 
         val submitButton = findViewById<Button>(R.id.buttonSubmitUsername)
         submitButton.setOnClickListener {

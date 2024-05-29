@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 class PasswordResetActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.simon2)
+        setContentView(R.layout.password_reset)
 
         val email = intent.getStringExtra("email")
         val emailEditText = findViewById<EditText>(R.id.email2)

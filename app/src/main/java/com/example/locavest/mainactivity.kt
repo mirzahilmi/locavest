@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(this)
         customStorage = FirebaseStorage.getInstance("gs://justinniceguy.appspot.com")
-        setContentView(R.layout.simon)
+        setContentView(R.layout.edit_profile)
 
         val arrowView = findViewById<View>(R.id.arrow_1)
         val storageRef = customStorage.reference
