@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.content.Intent
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -17,8 +18,9 @@ class AfterSignUp : AppCompatActivity() {
         welcomeTextView = findViewById(R.id.welcome_message)
         signoutButton = findViewById(R.id.btSignout)
 
-        val welcomeMessage = intent.getStringExtra("WELCOME_MESSAGE")
-        welcomeTextView.text = welcomeMessage
+
+        welcomeTextView.text = intent.getStringExtra("WELCOME_MESSAGE")
+        Log.d("Oper username", intent.getStringExtra("WELCOME_MESSAGE").toString())
 
         signoutButton.setOnClickListener{
             signOut()
@@ -33,7 +35,7 @@ class AfterSignUp : AppCompatActivity() {
 
 
     private fun navigateToSignInPage() {
-        val intent = Intent(this, SignupPage::class.java)
+        val intent = Intent(this, LoginPage::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         finish()
