@@ -1,5 +1,6 @@
 package com.example.locavest
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -38,7 +39,13 @@ class ProfileDetailActivity : AppCompatActivity() {
 
         val buttonEdit = findViewById<Button>(R.id.buttonEdit)
         buttonEdit.setOnClickListener {
-            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("email", email)
+            intent.putExtra("phoneNumber", phoneNumber)
+            intent.putExtra("address", address)
+            intent.putExtra("imageUri", imageUriString)
+            intent.putExtra("username", username)
+            startActivity(intent)
         }
     }
 }
