@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import id.AimarWork.Fragment.ListOfItemFragment
 import id.AimarWork.ModelDataClass.Category_Items
 import id.my.miruza.locavest.R
@@ -33,7 +34,7 @@ class Category_Items_Adapter(
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
                 val category = categoryList[position]
-                val fragment = ListOfItemFragment.newInstance(category.category)
+                val fragment = ListOfItemFragment.newInstance(category.name)
 
                 // Get the support fragment manager from the itemView's context
                 val fragmentManager = (itemView.context as AppCompatActivity).supportFragmentManager
@@ -42,6 +43,7 @@ class Category_Items_Adapter(
                 transaction.addToBackStack(null) // Add to back stack if needed
                 transaction.commit() // Commit the transaction
                 Log.d("Fragment Attempt", "Attempt to Load Fragment")
+
             }
         }
     }
@@ -57,7 +59,12 @@ class Category_Items_Adapter(
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = categoryList[position]
-        holder.imageHolder.setImageResource(category.image)
+        //holder.imageHolder.setImageResource(category.image)
+        holder.headerHolder.text = category.name
+        holder.totalItemCount.text = "List of Item: (${category.totalItem})"
+        Glide.with(holder.itemView.context)
+            .load(category.image)
+            .into(holder.imageHolder)
         holder.headerHolder.text = category.name
         holder.totalItemCount.text = "List of Item: (${category.totalItem})"
     }

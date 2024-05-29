@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import id.AimarWork.Fragment.DetailedItem
 import id.AimarWork.ModelDataClass.Format_Quantity
 import id.AimarWork.ModelDataClass.Item_from_Category
@@ -62,12 +63,14 @@ class Item_From_Category_Adapter(
 
     override fun onBindViewHolder(holder: ItemFromCategoryViewHolder, position: Int) {
         val item = itemList[position]
-        holder.imageHolder.setImageResource(item.imageItem)
-        holder.textHolder.text = item.Name
+        Glide.with(holder.itemView.context)
+            .load(item.image)
+            .into(holder.imageHolder)
+        holder.textHolder.text = item.name
 
         val calculatedPrice = CalculatePrice(item.price)
         val formattedPrice = CalculateFormatPrice(item.price)
-        val formatItem = GetFormat(item.quantity_type)
+        val formatItem = GetFormat(item.format)
         holder.priceHolder.text = "${calculatedPrice}${formattedPrice}"
         holder.format_quantity.text = "Rupiah /${formatItem}"
     }
@@ -81,10 +84,10 @@ class Item_From_Category_Adapter(
         else if(value > 1000) return "k"
         else return ""
     }
-    fun GetFormat(value : Format_Quantity) : String{
-        if(value == Format_Quantity.Kilo) return "kg"
-        if(value == Format_Quantity.Liter) return "l"
-        if(value == Format_Quantity.Piece) return "biji"
+    fun GetFormat(value : String) : String{
+        if(value == "Kilo") return "kg"
+        if(value == "Liter") return "l"
+        if(value == "Piece") return "biji"
         return ""
     }
 }

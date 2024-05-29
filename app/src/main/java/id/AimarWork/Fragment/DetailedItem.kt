@@ -30,12 +30,12 @@ class DetailedItem(data: Item_from_Category) : Fragment() {
 
         val calculatedPrice  = CalculatePrice(data.price)
         val formatPrice = CalculateFormatPrice(data.price)
-        val formatQuantity = GetFormat(data.quantity_type)
+        val formatQuantity = GetFormat(data.format)
 
 
         data.apply {
-            detailedItemImage.setImageResource(imageItem)
-            detailedItemName.text = Name
+            //detailedItemImage.setImageResource(image)
+            detailedItemName.text = name
         }
         detailedItemPrice.text ="${calculatedPrice}${formatPrice}"
         detailedItemFormatPrice.text = "Rupiah / ${formatQuantity}"
@@ -63,17 +63,17 @@ class DetailedItem(data: Item_from_Category) : Fragment() {
         else if(value > 1000) return "k"
         else return ""
     }
-    fun GetFormat(value : Format_Quantity) : String{
-        if(value == Format_Quantity.Kilo) return "kg"
-        if(value == Format_Quantity.Liter) return "l"
-        if(value == Format_Quantity.Piece) return "biji"
+    fun GetFormat(value : String) : String{
+        if(value == "Kilo") return "kg"
+        if(value == "Liter") return "l"
+        if(value == "Piece") return "biji"
         return ""
     }
     fun GetFormatPricePerPiece() : String{
         val pricePerPiece = data.weight_per_piece
-        val formatQuantity = when(data.quantity_type){
-            Format_Quantity.Kilo -> "g"
-            Format_Quantity.Liter -> "ml"
+        val formatQuantity = when(data.format){
+            "Kilo" -> "g"
+            "Liter" -> "ml"
             else -> "nigga"
         }
         return "${pricePerPiece}${formatQuantity}"
