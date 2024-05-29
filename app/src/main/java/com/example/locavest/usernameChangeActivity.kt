@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import android.view.View
-import com.example.locavest.R
 
 class UsernameChangeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -10,25 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.net.Uri
 import android.util.Log
 import android.widget.ImageView
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.firebase.initialize
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageException
-import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.storage
-import com.google.firebase.storage.storageMetadata
-import com.google.firebase.storage.ktx.storage
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.FirebaseApp
-import com.example.locavest.R
-import com.example.locavest.UsernameChangeActivity
-import android.app.Application
 import android.widget.Button
 import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var customStorage: FirebaseStorage
+    private var uploadedImageUri: Uri? = null
 
     private val startForUsernameChange = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
@@ -95,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         val phoneNumberEditText = findViewById<EditText>(R.id.phonenumber2)
         val addressEditText = findViewById<EditText>(R.id.address2)
 
+
         val email = emailEditText.text.toString()
         val phoneNumber = phoneNumberEditText.text.toString()
         val address = addressEditText.text.toString()
@@ -103,6 +94,14 @@ class MainActivity : AppCompatActivity() {
             putExtra("email", email)
             putExtra("phoneNumber", phoneNumber)
             putExtra("address", address)
+            val usernameTextView = findViewById<TextView>(R.id.textView3)
+            val username = usernameTextView.text.toString()
+            if (username.isNotBlank()) {
+                putExtra("username", username)
+            }
+            uploadedImageUri?.let {
+                putExtra("imageUri", it.toString())
+            }
         }
         startActivity(intent)
     }
@@ -119,6 +118,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Firebase", "Image upload successful, URL: $uri")
                 val uploadImageView = findViewById<ImageView>(R.id.profileImageView)
                 Glide.with(this).load(uri).into(uploadImageView)
+                uploadedImageUri = uri
             }.addOnFailureListener {
                 Log.e("Firebase", "Failed to get download URL", it)
             }
