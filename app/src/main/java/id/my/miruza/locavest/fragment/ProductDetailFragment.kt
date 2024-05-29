@@ -1,4 +1,4 @@
-package id.AimarWork.Fragment
+package id.my.miruza.locavest.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import id.AimarWork.ModelDataClass.Format_Quantity
-import id.AimarWork.ModelDataClass.Item_from_Category
+import id.my.miruza.locavest.data.ProductItem
 import id.my.miruza.locavest.R
 
-class DetailedItem(data: Item_from_Category) : Fragment() {
-    lateinit var data : Item_from_Category
+class ProductDetailFragment(data: ProductItem) : Fragment() {
+    lateinit var data : ProductItem
     init {
         this.data = data
     }
@@ -49,8 +48,8 @@ class DetailedItem(data: Item_from_Category) : Fragment() {
     }
 
     companion object {
-        fun newInstance(data : Item_from_Category) : DetailedItem{
-            return DetailedItem(data)
+        fun newInstance(data : ProductItem) : ProductDetailFragment {
+            return ProductDetailFragment(data)
         }
     }
     fun CalculatePrice(value : Float) : Float{
@@ -70,7 +69,7 @@ class DetailedItem(data: Item_from_Category) : Fragment() {
         return ""
     }
     fun GetFormatPricePerPiece() : String{
-        val pricePerPiece = data.weight_per_piece
+        val pricePerPiece = data.weightPerPiece
         val formatQuantity = when(data.format){
             "Kilo" -> "g"
             "Liter" -> "ml"

@@ -1,33 +1,14 @@
 {
   "project_info": {
-    "project_number": "445296989716",
-    "firebase_url": "https://testingnumber02-98f2b-default-rtdb.firebaseio.com",
-    "project_id": "testingnumber02-98f2b",
-    "storage_bucket": "testingnumber02-98f2b.appspot.com"
+    "project_number": "366618317775",
+    "firebase_url": "https://fir-developer-arena-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "fir-developer-arena",
+    "storage_bucket": "fir-developer-arena.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:445296989716:android:ec497a0b3fc1b049bcf901",
-        "android_client_info": {
-          "package_name": "com.example.projek_pam"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCv_4IM5lWM1mr2V8wfMSccVjgHAv56lnw"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:445296989716:android:ecb997cc15e38ed5bcf901",
+        "mobilesdk_app_id": "1:366618317775:android:bcf1229d4eabd6279ff8ba",
         "android_client_info": {
           "package_name": "id.my.miruza.locavest"
         }
@@ -35,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCv_4IM5lWM1mr2V8wfMSccVjgHAv56lnw"
+          "current_key": "AIzaSyAf1Ab_GfO7EnkItzxtHEsAQEeKPCPTy7o"
         }
       ],
       "services": {

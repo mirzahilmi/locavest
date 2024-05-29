@@ -1,4 +1,4 @@
-package id.AimarWork.RecyclerviewAimar.Adapter
+package id.my.miruza.locavest.adapter
 
 import android.content.Context
 import android.util.Log
@@ -10,23 +10,22 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import id.AimarWork.Fragment.DetailedItem
-import id.AimarWork.ModelDataClass.Format_Quantity
-import id.AimarWork.ModelDataClass.Item_from_Category
+import id.my.miruza.locavest.fragment.ProductDetailFragment
+import id.my.miruza.locavest.data.ProductItem
 import id.my.miruza.locavest.R
 
 
-class Item_From_Category_Adapter(
+class ProductsAdapter(
     private val context: Context,
-    private val itemList: ArrayList<Item_from_Category>
-) : RecyclerView.Adapter<Item_From_Category_Adapter.ItemFromCategoryViewHolder>() {
+    private val itemList: ArrayList<ProductItem>
+) : RecyclerView.Adapter<ProductsAdapter.ItemFromCategoryViewHolder>() {
 
     inner class ItemFromCategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
         val imageHolder: ImageView = itemView.findViewById(R.id.item_image)
         val textHolder: TextView = itemView.findViewById(R.id.item_name)
         val priceHolder : TextView = itemView.findViewById(R.id.price)
-        val format_quantity : TextView = itemView.findViewById(R.id.format_price)
+        val formatQuantity : TextView = itemView.findViewById(R.id.format_price)
 
         init {
             itemView.setOnClickListener(this)
@@ -38,7 +37,7 @@ class Item_From_Category_Adapter(
                 val item = itemList[position]
 
 
-                val fragment = DetailedItem.newInstance(item)
+                val fragment = ProductDetailFragment.newInstance(item)
 
                 val fragmentManager =
                     (itemView.context as AppCompatActivity).supportFragmentManager
@@ -53,7 +52,7 @@ class Item_From_Category_Adapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemFromCategoryViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_from_category, parent, false)
+            .inflate(R.layout.layout_product_item, parent, false)
         return ItemFromCategoryViewHolder(view)
     }
 
@@ -72,7 +71,7 @@ class Item_From_Category_Adapter(
         val formattedPrice = CalculateFormatPrice(item.price)
         val formatItem = GetFormat(item.format)
         holder.priceHolder.text = "${calculatedPrice}${formattedPrice}"
-        holder.format_quantity.text = "Rupiah /${formatItem}"
+        holder.formatQuantity.text = "Rupiah /${formatItem}"
     }
     fun CalculatePrice(value : Float) : Float{
         if(value > 1000000) return value/1000000

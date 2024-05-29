@@ -1,7 +1,6 @@
-package id.AimarWork.RecyclerviewAimar.Adapter
+package id.my.miruza.locavest.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,18 +8,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import id.AimarWork.Fragment.ListOfItemFragment
-import id.AimarWork.ModelDataClass.Category_Items
+import id.my.miruza.locavest.fragment.ProductsFragment
+import id.my.miruza.locavest.data.CategoryItem
 import id.my.miruza.locavest.R
 
 
-class Category_Items_Adapter(
+class CategoriesAdapter(
     private val context : Context,
-    private val categoryList:ArrayList<Category_Items>)
-    : RecyclerView.Adapter<Category_Items_Adapter.CategoryViewHolder>(){
+    private val categoryList:ArrayList<CategoryItem>)
+    : RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>(){
 
     inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         val imageHolder: ImageView = itemView.findViewById(R.id.category_container_data_image)
@@ -34,7 +32,7 @@ class Category_Items_Adapter(
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
                 val category = categoryList[position]
-                val fragment = ListOfItemFragment.newInstance(category.name)
+                val fragment = ProductsFragment.newInstance(category.name)
 
                 // Get the support fragment manager from the itemView's context
                 val fragmentManager = (itemView.context as AppCompatActivity).supportFragmentManager
@@ -49,7 +47,7 @@ class Category_Items_Adapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_category_item, parent, false)
         return CategoryViewHolder(view)
     }
 

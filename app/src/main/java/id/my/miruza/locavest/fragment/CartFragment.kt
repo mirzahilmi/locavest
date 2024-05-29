@@ -1,5 +1,6 @@
 package id.my.miruza.locavest.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,15 +10,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import id.my.miruza.locavest.data.CartItem
 import id.my.miruza.locavest.adapter.CartItemsAdapter
 import id.my.miruza.locavest.RetrofitInstance
+import id.my.miruza.locavest.activity.CheckoutActivity
 import id.my.miruza.locavest.activity.MainActivity
 import id.my.miruza.locavest.databinding.FragmentCartBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.ArrayList
 
 class CartFragment : Fragment() {
     private var _binding: FragmentCartBinding? = null
     private val binding get() = _binding!!
+    private var cartItems: List<CartItem> = emptyList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -32,6 +36,13 @@ class CartFragment : Fragment() {
         binding.itemsRecyclerView.layoutManager = LinearLayoutManager(context)
         // TODO: Asynchronous call
         fetchCartItems()
+        binding.btnCheckout.setOnClickListener {
+            val intent = Intent(requireContext(), CheckoutActivity::class.java)
+            val bundle = Bundle()
+            bundle.putParcelableArrayList("cartItems", ArrayList(cartItems))
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {
@@ -44,7 +55,7 @@ class CartFragment : Fragment() {
             override fun onResponse(
                 call: Call<List<CartItem>>, response: Response<List<CartItem>>
             ) {
-                var cartItems = response.body() ?: emptyList()
+                cartItems = response.body() ?: emptyList()
                 cartItems = listOf(
                     CartItem(
                         "https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg",
@@ -110,7 +121,6 @@ class CartFragment : Fragment() {
                 )
                 // TODO: Proper exit upon API call failure
                 binding.itemsRecyclerView.adapter = CartItemsAdapter(cartItems)
-                (activity as MainActivity).setCartItems(cartItems)
             }
 
             override fun onFailure(call: Call<List<CartItem>>, t: Throwable) {
