@@ -7,6 +7,8 @@ import id.my.miruza.locavest.fragment.CategoriesFragment
 import id.my.miruza.locavest.fragment.CartFragment
 import id.my.miruza.locavest.R
 import id.my.miruza.locavest.databinding.ActivityMainBinding
+import id.my.miruza.locavest.fragment.ProfileFragment
+import id.my.miruza.locavest.fragment.ProfileHolderFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -18,11 +20,13 @@ class MainActivity : AppCompatActivity() {
 
         val foodstuffFg = CategoriesFragment()
         val cartFg = CartFragment()
+        val profileFg = ProfileHolderFragment()
         setCurrentFragment(foodstuffFg)
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.foodstuff -> setCurrentFragment(foodstuffFg)
                 R.id.cart -> setCurrentFragment(cartFg, true)
+                R.id.profile -> setCurrentFragment(profileFg, true)
             }
             true
         }
