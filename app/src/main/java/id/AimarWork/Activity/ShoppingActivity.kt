@@ -11,10 +11,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
-import id.AimarWork.EnumPackageAimar.Category_Item_enum
-import id.AimarWork.FileDataTemporary.fruits
-import id.AimarWork.FileDataTemporary.meats
-import id.AimarWork.FileDataTemporary.vegetables
 import id.AimarWork.ModelDataClass.Category_Items
 import id.AimarWork.RecyclerviewAimar.Adapter.Category_Items_Adapter
 import id.my.miruza.locavest.R
