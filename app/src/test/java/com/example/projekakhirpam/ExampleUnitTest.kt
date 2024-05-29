@@ -1,4 +1,4 @@
-package id.my.miruza.locavest
+package com.example.projekakhirpam
 
 import org.junit.Test
 

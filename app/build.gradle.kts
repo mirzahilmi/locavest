@@ -19,10 +19,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -38,6 +34,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -51,6 +50,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.moshi)
     implementation(libs.converterMoshi)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -58,4 +59,6 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.storage)
+    implementation("com.google.firebase:firebase-auth")
+    implementation ("com.firebaseui:firebase-ui-auth:7.2.0")
 }
