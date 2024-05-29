@@ -1,12 +1,14 @@
-package id.my.miruza.locavest
+package id.my.miruza.locavest.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
+import id.my.miruza.locavest.R
+import id.my.miruza.locavest.adapter.ViewPagerAdapter
 
-class WelcomePage : AppCompatActivity() {
+class WelcomeActivity : AppCompatActivity() {
     lateinit var btToLogin : Button
     lateinit var btSkip : Button
     lateinit var viewPager2 : ViewPager2

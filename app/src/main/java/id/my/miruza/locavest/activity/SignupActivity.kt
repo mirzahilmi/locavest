@@ -1,4 +1,4 @@
-package id.my.miruza.locavest
+package id.my.miruza.locavest.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,9 +14,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import id.my.miruza.locavest.activity.MainActivity
+import id.my.miruza.locavest.R
 
-class SignupPage : AppCompatActivity() {
+class SignupActivity : AppCompatActivity() {
     lateinit var btToSignup : Button
     lateinit var textEmail : TextView
     lateinit var textPassword : TextView
