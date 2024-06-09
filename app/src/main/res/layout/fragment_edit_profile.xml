@@ -118,7 +118,7 @@ tools:context=".fragment.ProfileFragment">
     app:layout_constraintVertical_bias="0.556" />
 
 <EditText
-    android:id="@+id/email2"
+    android:id="@+id/emailEdit"
     android:layout_width="290dp"
     android:layout_height="55dp"
     android:ems="10"
@@ -136,7 +136,6 @@ tools:context=".fragment.ProfileFragment">
     android:id="@+id/password2"
     android:layout_width="290dp"
     android:layout_height="55dp"
-
     android:ems="10"
     android:hint="type password here..."
     android:inputType="textPassword"
@@ -178,10 +177,9 @@ tools:context=".fragment.ProfileFragment">
     app:layout_constraintVertical_bias="0.688" />
 
 <EditText
-    android:id="@+id/phonenumber2"
+    android:id="@+id/phonenumberEdit"
     android:layout_width="290dp"
     android:layout_height="55dp"
-
     android:ems="10"
     android:hint="type phone number here..."
     android:paddingLeft="20dp"
@@ -207,7 +205,7 @@ tools:context=".fragment.ProfileFragment">
     app:layout_constraintVertical_bias="0.803" />
 
 <EditText
-    android:id="@+id/address2"
+    android:id="@+id/addressEdit"
     android:layout_width="290dp"
     android:layout_height="55dp"
     android:ems="10"
