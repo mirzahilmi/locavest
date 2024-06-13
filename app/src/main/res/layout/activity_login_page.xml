@@ -111,11 +111,10 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="72dp"
         android:text="or login with"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
@@ -128,7 +127,7 @@
         android:backgroundTint="@color/white"
         android:text="‎"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -151,14 +150,14 @@
         android:id="@+id/signUpNow"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
         android:onClick="onSignUpClicked"
         android:text="Don't have an account? Sign Up now"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btToLogin" />
 
