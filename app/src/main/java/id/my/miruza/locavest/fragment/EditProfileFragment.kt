@@ -42,7 +42,7 @@ class EditProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         FirebaseApp.initializeApp(requireContext())
-        customStorage = FirebaseStorage.getInstance("gs://fir-developer-arena.appspot.com/images")
+        customStorage = FirebaseStorage.getInstance("gs://fir-developer-arena.appspot.com")
         return inflater.inflate(R.layout.fragment_edit_profile, container, false)
     }
 
