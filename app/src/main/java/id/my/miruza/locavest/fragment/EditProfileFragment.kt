@@ -1,6 +1,5 @@
 package id.my.miruza.locavest.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +16,16 @@ import com.google.firebase.FirebaseApp
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import androidx.fragment.app.activityViewModels
 import id.my.miruza.locavest.R
+import id.my.miruza.locavest.fragment.SharedViewModel
 
 class EditProfileFragment : Fragment() {
 
     private lateinit var customStorage: FirebaseStorage
     private var uploadedImageUri: Uri? = null
+    private lateinit var usernameTextView: TextView
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
 
     private val startForPasswordReset = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -45,6 +48,17 @@ class EditProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        usernameTextView = view.findViewById(R.id.textView3)
+
+        val emailEditText = view.findViewById<EditText>(R.id.emailEdit)
+        val phoneNumberEditText = view.findViewById<EditText>(R.id.phonenumberEdit)
+        val addressEditText = view.findViewById<EditText>(R.id.addressEdit)
+
+
+        sharedViewModel.username.observe(viewLifecycleOwner) { newUsername ->
+            usernameTextView.text = newUsername
+        }
 
         val arrowView = view.findViewById<View>(R.id.arrow_1)
         val storageRef = customStorage.reference
@@ -75,6 +89,9 @@ class EditProfileFragment : Fragment() {
 
         val completeButton = view.findViewById<Button>(R.id.buttonLogin)
         completeButton.setOnClickListener {
+            sharedViewModel.setEmail(emailEditText.text.toString())
+            sharedViewModel.setPhoneNumber(phoneNumberEditText.text.toString())
+            sharedViewModel.setAddress(addressEditText.text.toString())
             requireActivity().supportFragmentManager.popBackStack()
         }
     }
@@ -92,9 +109,13 @@ class EditProfileFragment : Fragment() {
                 val uploadImageView = view?.findViewById<ImageView>(R.id.profileImageView)
                 Glide.with(this).load(uri).into(uploadImageView!!)
                 uploadedImageUri = uri
+                sharedViewModel.setImageUri(uri.toString())
             }.addOnFailureListener {
                 Log.e("Firebase", "Failed to get download URL", it)
             }
         }
+    }
+    fun updateUsername(newUsername: String) {
+        usernameTextView.text = newUsername
     }
 }

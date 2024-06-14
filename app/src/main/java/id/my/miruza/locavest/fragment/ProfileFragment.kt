@@ -9,38 +9,49 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import id.my.miruza.locavest.R
+import id.my.miruza.locavest.fragment.SharedViewModel
 
 class ProfileFragment : Fragment() {
+
+    private lateinit var usernameTextView: TextView
+    private val sharedViewModel: SharedViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        usernameTextView = view.findViewById(R.id.textView3)
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val email = "email"
-        val phoneNumber = "phoneNumber"
-        val address = "address"
-        val imageUriString = ""
-        val username = "username"
-
-        val emailTextView = view.findViewById<TextView>(R.id.email2)
-        val phoneNumberTextView = view.findViewById<TextView>(R.id.phonenumber2)
-        val addressTextView = view.findViewById<TextView>(R.id.address2)
-        val profileImageView = view.findViewById<ImageView>(R.id.profileImageView2)
+        val emailTextView = view.findViewById<TextView>(R.id.emailShow)
+        val phoneNumberTextView = view.findViewById<TextView>(R.id.phonenumberShow)
+        val addressTextView = view.findViewById<TextView>(R.id.addressShow)
         val usernameTextView = view.findViewById<TextView>(R.id.textView3)
 
-        emailTextView.text = email
-        phoneNumberTextView.text = phoneNumber
-        addressTextView.text = address
-        usernameTextView.text = username
+        sharedViewModel.email.observe(viewLifecycleOwner) { email ->
+            emailTextView.text = email
+        }
 
-        if (imageUriString.isNotEmpty()) {
-            Glide.with(this).load(imageUriString).into(profileImageView)
+        sharedViewModel.phoneNumber.observe(viewLifecycleOwner) { phoneNumber ->
+            phoneNumberTextView.text = phoneNumber
+        }
+
+        sharedViewModel.address.observe(viewLifecycleOwner) { address ->
+            addressTextView.text = address
+        }
+
+        sharedViewModel.username.observe(viewLifecycleOwner) { newUsername ->
+            usernameTextView.text = newUsername
+        }
+        val profileImageView = view.findViewById<ImageView>(R.id.profileImageView2)
+        sharedViewModel.imageUri.observe(viewLifecycleOwner) { imageUri ->
+            Glide.with(this).load(imageUri).into(profileImageView)
         }
 
         val buttonEdit = view.findViewById<Button>(R.id.buttonEdit)
@@ -52,5 +63,12 @@ class ProfileFragment : Fragment() {
                 commit()
             }
         }
+        sharedViewModel.username.observe(viewLifecycleOwner) { newUsername ->
+            usernameTextView.text = newUsername
+        }
+    }
+
+    fun updateUsername(newUsername: String) {
+        usernameTextView.text = newUsername
     }
 }
