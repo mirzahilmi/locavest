@@ -61,22 +61,7 @@ tools:context=".fragment.ProfileFragment">
     app:layout_constraintTop_toBottomOf="@+id/textView2"
     app:layout_constraintVertical_bias="0.625" />
 
-<View
-    android:id="@+id/arrow_1"
-    android:layout_width="30dp"
-    android:layout_height="30dp"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_marginBottom="42dp"
-    android:background="@drawable/arrow_1"
-    app:layout_constraintBottom_toTopOf="@+id/roundedRectangleImageView"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.832"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.975" />
-
-<TextView
+    <TextView
     android:id="@+id/email"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -91,7 +76,7 @@ tools:context=".fragment.ProfileFragment">
 
 
 <TextView
-    android:id="@+id/email2"
+    android:id="@+id/emailShow"
     android:layout_width="290dp"
     android:layout_height="55dp"
     android:ems="10"
@@ -119,7 +104,7 @@ tools:context=".fragment.ProfileFragment">
     app:layout_constraintVertical_bias="0.578" />
 
 <TextView
-    android:id="@+id/phonenumber2"
+    android:id="@+id/phonenumberShow"
     android:layout_width="290dp"
     android:layout_height="55dp"
     android:ems="10"
@@ -147,7 +132,7 @@ tools:context=".fragment.ProfileFragment">
     app:layout_constraintVertical_bias="0.691" />
 
 <TextView
-    android:id="@+id/address2"
+    android:id="@+id/addressShow"
     android:layout_width="290dp"
     android:layout_height="55dp"
     android:ems="10"

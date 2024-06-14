@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ProjekAkhirPAM"
+rootProject.name = "Locavest"
 include(":app")
  

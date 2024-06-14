@@ -59,6 +59,9 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.storage)
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.1")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.1")
+    implementation ("androidx.fragment:fragment-ktx:1.7.1")
     implementation(libs.firebase.auth)
     implementation (libs.firebase.ui.auth)
 }
