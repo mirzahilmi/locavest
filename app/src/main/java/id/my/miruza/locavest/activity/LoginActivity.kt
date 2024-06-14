@@ -159,10 +159,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun handleSignInSuccess(user: FirebaseUser?) {
         user?.let {
-            val welcomeMessage = "Welcome " + loginEmail.text
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("WELCOME", "AAAAAAAaaaaaaaaaaa")
-            Toast.makeText(this, "LOgin berhasil", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
             startActivity(intent)
 
         } ?:{
