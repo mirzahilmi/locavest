@@ -14,11 +14,9 @@ import android.widget.ImageView
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.FirebaseApp
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import androidx.fragment.app.activityViewModels
 import id.my.miruza.locavest.R
-import id.my.miruza.locavest.fragment.SharedViewModel
 
 class EditProfileFragment : Fragment() {
 
@@ -26,10 +24,6 @@ class EditProfileFragment : Fragment() {
     private var uploadedImageUri: Uri? = null
     private lateinit var usernameTextView: TextView
     private val sharedViewModel: SharedViewModel by activityViewModels()
-
-
-    private val startForPasswordReset = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-    }
 
     private val selectImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         uri?.let {
@@ -61,7 +55,6 @@ class EditProfileFragment : Fragment() {
         }
 
         val arrowView = view.findViewById<View>(R.id.arrow_1)
-        val storageRef = customStorage.reference
 
         arrowView.setOnClickListener {
             val profileChangeUsernameFg = ProfileChangeUsernameFragment()
@@ -103,7 +96,7 @@ class EditProfileFragment : Fragment() {
 
         uploadTask.addOnFailureListener {
             Log.e("Firebase", "Image upload failed", it)
-        }.addOnSuccessListener { taskSnapshot ->
+        }.addOnSuccessListener { _ ->
             imagesRef.downloadUrl.addOnSuccessListener { uri ->
                 Log.d("Firebase", "Image upload successful, URL: $uri")
                 val uploadImageView = view?.findViewById<ImageView>(R.id.profileImageView)
@@ -114,8 +107,5 @@ class EditProfileFragment : Fragment() {
                 Log.e("Firebase", "Failed to get download URL", it)
             }
         }
-    }
-    fun updateUsername(newUsername: String) {
-        usernameTextView.text = newUsername
     }
 }
