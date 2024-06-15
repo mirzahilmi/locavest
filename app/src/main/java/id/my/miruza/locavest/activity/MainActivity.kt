@@ -1,6 +1,7 @@
 package id.my.miruza.locavest.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import id.my.miruza.locavest.fragment.CategoriesFragment
