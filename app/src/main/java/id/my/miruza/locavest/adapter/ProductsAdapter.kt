@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,12 @@ import com.bumptech.glide.Glide
 import id.my.miruza.locavest.fragment.ProductDetailFragment
 import id.my.miruza.locavest.data.ProductItem
 import id.my.miruza.locavest.R
+import id.my.miruza.locavest.RetrofitInstance
+import id.my.miruza.locavest.data.CartItem
+import id.my.miruza.locavest.data.SendCartData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class ProductsAdapter(
@@ -26,9 +33,16 @@ class ProductsAdapter(
         val textHolder: TextView = itemView.findViewById(R.id.item_name)
         val priceHolder : TextView = itemView.findViewById(R.id.price)
         val formatQuantity : TextView = itemView.findViewById(R.id.format_price)
+        val addToCartButton : ImageView = itemView.findViewById(R.id.add_to_cart_button)
+
 
         init {
             itemView.setOnClickListener(this)
+            addToCartButton.setOnClickListener(View.OnClickListener {
+                val productItem = itemList[adapterPosition]
+                val cartItem = SendCartData(productItem.id, 1)
+                addToCart(cartItem)
+            })
         }
 
         override fun onClick(v: View?) {
@@ -72,6 +86,21 @@ class ProductsAdapter(
         val formatItem = GetFormat(item.format)
         holder.priceHolder.text = "${calculatedPrice}${formattedPrice}"
         holder.formatQuantity.text = "Rupiah /${formatItem}"
+    }
+    private fun addToCart(cartItem: SendCartData) {
+        RetrofitInstance.api.addCartItems(cartItem).enqueue(object : Callback<SendCartData> {
+            override fun onResponse(call: Call<SendCartData>, response: Response<SendCartData>) {
+                if (response.isSuccessful) {
+                    Log.d("AddToCart", "Item added to cart: ${response.body()}")
+                } else {
+                    Log.d("AddToCart", "Failed to add item to cart: ${response.errorBody()?.string()} ${response.headers()}")
+                }
+            }
+
+            override fun onFailure(call: Call<SendCartData>, t: Throwable) {
+                Log.e("AddToCart", "Error: ${t.message}", t)
+            }
+        })
     }
     fun CalculatePrice(value : Float) : Float{
         if(value > 1000000) return value/1000000
