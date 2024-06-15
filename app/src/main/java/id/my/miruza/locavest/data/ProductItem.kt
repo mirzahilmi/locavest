@@ -1,6 +1,7 @@
 package id.my.miruza.locavest.data
 
 data class ProductItem(
+    val id : Int,
     val name: String,
     val image: String,
     val price: Float,
@@ -8,5 +9,5 @@ data class ProductItem(
     val weightPerPiece: Int
 ){
     constructor():this
-        ("","", 0f, "", 0)
+        (1000,"","", 0f, "", 0)
 }

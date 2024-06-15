@@ -13,7 +13,7 @@ object RetrofitInstance {
             .build()
 
         Retrofit.Builder()
-            .baseUrl("https://example.com")
+            .baseUrl("https://example.com/api/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(SuperAPI::class.java)
