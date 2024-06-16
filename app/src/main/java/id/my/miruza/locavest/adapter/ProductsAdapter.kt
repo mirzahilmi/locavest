@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -93,13 +94,16 @@ class ProductsAdapter(
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     Log.d("AddToCart", "Item added to cart: ${response.body()}")
+                    Toast.makeText(context, "Item successfully added to cart", Toast.LENGTH_SHORT).show()
                 } else {
+                    Toast.makeText(context, "Item successfully failed to cart", Toast.LENGTH_SHORT).show()
                     Log.d("AddToCart", "Failed to add item to cart: ${response.errorBody()?.string()} ${response.headers()}")
                 }
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Log.e("AddToCart", "Error: ${t.cause}", t)
+                Toast.makeText(context, "Item successfully failed to cart", Toast.LENGTH_SHORT).show()
             }
         })
     }
