@@ -55,11 +55,11 @@ class ProductDetailFragment(data: ProductItem) : Fragment() {
         }
         addToCartButton.setOnClickListener{
             val cartItem = SendCartData(data.id, 1)
-            addToCart(cartItem)
+            //addToCart(cartItem)
         }
         return view
     }
-    private fun addToCart(cartItem: SendCartData) {
+    /*private fun addToCart(cartItem: SendCartData) {
         RetrofitInstance.api.addCartItems(cartItem).enqueue(object : Callback<SendCartData> {
             override fun onResponse(call: Call<SendCartData>, response: Response<SendCartData>) {
                 if (response.isSuccessful) {
@@ -73,7 +73,7 @@ class ProductDetailFragment(data: ProductItem) : Fragment() {
                 Log.e("AddToCart", "Error: ${t.message}", t)
             }
         })
-    }
+    }*/
     companion object {
         fun newInstance(data : ProductItem) : ProductDetailFragment {
             return ProductDetailFragment(data)
