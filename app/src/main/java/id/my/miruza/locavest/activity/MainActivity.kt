@@ -33,6 +33,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val foodstuffFg = CategoriesFragment()
+        setCurrentFragment(foodstuffFg)
+        binding.bottomNavigation.selectedItemId = R.id.foodstuff
+    }
+
     private fun setCurrentFragment(fr: Fragment, addToStack: Boolean = false) =
         supportFragmentManager.beginTransaction().apply {
             replace(binding.frameLayout.id, fr)
