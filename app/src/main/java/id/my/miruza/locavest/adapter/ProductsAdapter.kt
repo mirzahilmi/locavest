@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -92,13 +93,16 @@ class ProductsAdapter(
         RetrofitInstance.api.addCartItems(cartItem).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
+                    Toast.makeText(context, "Item successfully added to cart", Toast.LENGTH_SHORT).show()
                     Log.d("AddToCart", "Item added to cart: ${response.body()}")
                 } else {
+                    Toast.makeText(context, "Item failed to be added to cart", Toast.LENGTH_SHORT).show()
                     Log.d("AddToCart", "Failed to add item to cart: ${response.errorBody()?.string()} ${response.headers()}")
                 }
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Toast.makeText(context, "Item failed to be added to cart", Toast.LENGTH_SHORT).show()
                 Log.e("AddToCart", "Error: ${t.cause}", t)
             }
         })
