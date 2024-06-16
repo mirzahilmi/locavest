@@ -17,6 +17,7 @@ import id.my.miruza.locavest.R
 import id.my.miruza.locavest.RetrofitInstance
 import id.my.miruza.locavest.data.CartItem
 import id.my.miruza.locavest.data.SendCartData
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -88,8 +89,8 @@ class ProductsAdapter(
         holder.formatQuantity.text = "Rupiah /${formatItem}"
     }
     private fun addToCart(cartItem: SendCartData) {
-        RetrofitInstance.api.addCartItems(cartItem).enqueue(object : Callback<SendCartData> {
-            override fun onResponse(call: Call<SendCartData>, response: Response<SendCartData>) {
+        RetrofitInstance.api.addCartItems(cartItem).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     Log.d("AddToCart", "Item added to cart: ${response.body()}")
                 } else {
@@ -97,8 +98,8 @@ class ProductsAdapter(
                 }
             }
 
-            override fun onFailure(call: Call<SendCartData>, t: Throwable) {
-                Log.e("AddToCart", "Error: ${t.message}", t)
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e("AddToCart", "Error: ${t.cause}", t)
             }
         })
     }

@@ -5,6 +5,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class SendCartData(
-    val id: Int,
+    val productID: Int,
     val quantity: Int
 ) : Parcelable
